@@ -54,8 +54,7 @@ namespace OBCO_Game
             HideUI();
             SetBackground("loadingScreen.jpg");
             await Task.Delay(3000);
-            Hide();
-            
+
             MainScene mainScene = new MainScene();
             mainScene.Show();
             MainMenu mainMenu = new MainMenu();

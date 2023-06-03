@@ -103,7 +103,7 @@
             this.gameBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.gameBackground.TabIndex = 6;
             this.gameBackground.TabStop = false;
-            this.gameBackground.Click += new System.EventHandler(this.morningBackground1_Click);
+            this.gameBackground.Click += new System.EventHandler(this.gameBackground_Click);
             // 
             // welcomeScreen
             // 

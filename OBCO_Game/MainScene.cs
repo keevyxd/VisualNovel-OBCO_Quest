@@ -28,25 +28,103 @@ namespace OBCO_Game
         private int sceneIndex = -1;
         private static bool isWaitingForResponse = false, isProcessing = false;
 
-        private void exitButton_Click(object sender, EventArgs e)
+        #region Методы сцен
+        private async Task MorningScene1()
         {
-            DialogResult dialogResult = MessageBox.Show("Вы точно хотите выйти в главное меню?", ":(", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            SceneProps props = new SceneProps
             {
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.Show();
-                Close();
-            }
+                CharacterFileName = "nagitoWoke.png",
+                BackgroundFileName = "morningBox.jpg",
+                CharacterSpeech = "Ох, уже 10 часов утра"
+            };
+            await SceneBuilder(props);
         }
-
-        private void welcomeScreen_Click(object sender, EventArgs e)
+        private async Task MorningScene2()
         {
-            welcomeScreen.Hide();
-            gameBackground.Show();
-            SetBackground("morningBackground.jpg");
-            exitButton.Show();
+            SceneProps props = new SceneProps
+            {
+                CharacterFileName = "nagitoThinking.png",
+                BackgroundFileName = "morningBox.jpg",
+                CharacterSpeech = "Видимо я опоздаю на встречу с Микан в лаборатории."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task MorningScene3()
+        {
+            SceneProps props = new SceneProps
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "morningBox.jpg",
+                CharacterSpeech = "Нужно поторопиться, я должен проверить ее знания по цифровой грамотности..."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task MorningScene4()
+        {
+            SceneProps props = new SceneProps
+            {
+                CharacterFileName = "nagitoWhat.png",
+                BackgroundFileName = "morningBox.jpg",
+                CharacterSpeech = "Иначе она не сможет сдать сессию в университете."
+            };
+            await SceneBuilder(props);
         }
 
+        private async Task MorningRoadScene1()
+        {
+            SceneProps props = new SceneProps
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "morningRoadBox.jpg",
+                CharacterSpeech = "Отличная погода, наконец наступило лето."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task MorningRoadScene2()
+        {
+            SceneProps props = new SceneProps
+            {
+                CharacterFileName = "nagitoThinking.png",
+                BackgroundFileName = "morningRoadBox.jpg",
+                CharacterSpeech = "Жаль, что я не смогу как следует прогуляться, меня ждет Микан."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task MorningRoadScene3()
+        {
+            SceneProps props = new SceneProps
+            {
+                CharacterFileName = "nagitoThinking.png",
+                BackgroundFileName = "morningRoadBox.jpg",
+                CharacterSpeech = "Лаборатория в 5 минутах ходьбы отсюда. Осталось совсем немного."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task MorningRoadScene4()
+        {
+            SceneProps props = new SceneProps
+            {
+                CharacterFileName = "nagitoThinking.png",
+                BackgroundFileName = "morningRoadBox.jpg",
+                CharacterSpeech = "Ладно, ускорюсь пожалуй. А иначе будет не очень хорошо по отношению к ней если я" +
+                "\nбуду стоять здесь как истукан."
+            };
+            await SceneBuilder(props);
+        }
+
+        private async Task LabScene1()
+        {
+            SceneProps props = new SceneProps
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox.jpg",
+                CharacterSpeech = "Так, теперь осталось найти Микан. Куда же она решила пойти?"
+            };
+            await SceneBuilder(props);
+        }
+        #endregion
+
+        #region Методы управления интерфейсом
         private async Task ShowUI()
         {
             nagitoChar.Show();
@@ -67,7 +145,7 @@ namespace OBCO_Game
             speechTextLabel.Text = string.Empty;
             dotsLabel.Text = string.Empty;
         }
-        private async Task ShowDots()
+        private async Task ShowDotsUI()
         {
             while (isWaitingForResponse)
             {
@@ -80,17 +158,9 @@ namespace OBCO_Game
                 await Task.Delay(300);
             }
         }
+        #endregion
 
-        private async Task TypeSpeech(string speech)
-        {
-            speechTextLabel.Text = string.Empty;
-            foreach (char c in speech)
-            {
-                speechTextLabel.Text += c;
-                await Task.Delay(10);
-            }
-        }
-
+        #region Методы для работы со спрайтами и речью
         private void SetNagitoSprite(string fileName)
         {
             string path = Path.Combine(Application.StartupPath, "Sprites", fileName);
@@ -105,8 +175,7 @@ namespace OBCO_Game
                 MessageBox.Show("Ошибка в коде. Неправильное расположение/название спрайта персонажа.");
             }
         }
-
-        private void SetBackground(string fileName)
+        private void SetBackgroundImage(string fileName)
         {
             string path = Path.Combine(Application.StartupPath, "Sprites", fileName);
 
@@ -120,135 +189,60 @@ namespace OBCO_Game
                 MessageBox.Show("Ошибка в коде. Неправильное расположение/название спрайта.");
             }
         }
+        private async Task TypeSpeech(string speech)
+        {
+            speechTextLabel.Text = string.Empty;
+            foreach (char c in speech)
+            {
+                speechTextLabel.Text += c;
+                await Task.Delay(10);
+            }
+        }
+        #endregion
 
-        private async void SwitchScene(string sceneName)
+        #region Методы работы со сценами
+        private async void SwitchScene(string backgroundFileName, string characterFileName)
         {
             HideUI();
-            SetBackground("loadingScreen.jpg");
+            SetBackgroundImage("loadingScreen.jpg");
             await Task.Delay(3000);
-            SetBackground(sceneName);
+            SetBackgroundImage(backgroundFileName);
+            SetNagitoSprite(characterFileName);
             isProcessing = false;
         }
-
-        private async Task MorningScene1()
+        private void SwitchSubScene()
         {
-            SetBackground("morningBox.jpg");
-
-            SetNagitoSprite("nagitoWoke.png");
-            await Task.Delay(300);
-
-            nagitoChar.Show();
-            await Task.Delay(300);
-
-            charNameLabel.Show();
-            speechTextLabel.Show();
-            await TypeSpeech("Ох, уже 10 часов утра.");
-
-            isProcessing = false;
-            isWaitingForResponse = true;
-            await ShowDots();
-        }
-        private async Task MorningScene2()
-        {
-            SetNagitoSprite("nagitoThinking.png");
-
-            await TypeSpeech("Видимо я опоздаю на встречу с Микан в лаборатории.");
-
-            isProcessing = false;
-            isWaitingForResponse = true;
-            await ShowDots();
-        }
-        private async Task MorningScene3()
-        {
-            SetNagitoSprite("nagitoHmm.png");
-
-            await TypeSpeech("Нужно поторопиться, я должен проверить ее знания по цифровой грамотности...");
-
-            isProcessing = false;
-            isWaitingForResponse = true;
-            await ShowDots();
-        }
-        private async Task MorningScene4()
-        {
-            SetNagitoSprite("nagitoWhat.png");
-
-            await TypeSpeech("Иначе она не сможет сдать сессию в университете.");
-
-            isProcessing = false;
-            isWaitingForResponse = true;
-            await ShowDots();
-        }
-        private async Task MorningRoadScene1()
-        {
-            SetBackground("morningRoadBox.jpg");
-
-            SetNagitoSprite("nagitoHmm.png");
-            await Task.Delay(300);
-            await ShowUI();
-            await TypeSpeech("Отличная погода, наконец наступило лето.");
-
-            isProcessing = false;
-            isWaitingForResponse = true;
-            await ShowDots();
-        }
-        private async Task MorningRoadScene2()
-        {
-            SetNagitoSprite("nagitoThinking.png");
-
-            await TypeSpeech("Жаль, что я не смогу как следует прогуляться, меня ждет Микан.");
-
-            isProcessing = false;
-            isWaitingForResponse = true;
-            await ShowDots();
-        }
-        private async Task MorningRoadScene3()
-        {
-            SetNagitoSprite("nagitoThinking.png");
-            await TypeSpeech("Лаборатория в 5 минутах ходьбы отсюда. Осталось совсем немного.");
-
-            isProcessing = false;
-            isWaitingForResponse = true;
-            await ShowDots();
-        }
-        private async Task MorningRoadScene4()
-        {
-            await TypeSpeech("Ладно, пожалуй, ускорюсь немного.");
-
-            isProcessing = false;
-            isWaitingForResponse = true;
-            await ShowDots();
-        }
-        private async Task LabScene1()
-        {
-            SetBackground("labBox.jpg");
-
-            SetNagitoSprite("nagitoWoke.png");
-            await Task.Delay(300);
-
-            await ShowUI();
-
-            await TypeSpeech("Так, теперь осталось найти Микан. Куда же она решила пойти?");
-
-            isProcessing = false;
-            isWaitingForResponse = true;
-            await ShowDots();
-        }
-
-        private async void morningBackground1_Click(object sender, EventArgs e)
-        {
-            if (isProcessing)
-                return;
-
-            isProcessing = true;
             speechTextLabel.Text = string.Empty;
             dotsLabel.Text = string.Empty;
             isWaitingForResponse = !isWaitingForResponse;
             sceneIndex++;
-            string speech = string.Empty;
+        }
+        private async Task SceneBuilder(SceneProps props)
+        {
+            SetNagitoSprite(props.CharacterFileName);
+            SetBackgroundImage(props.BackgroundFileName);
+            await TypeSpeech(props.CharacterSpeech);
+
+            isProcessing = false;
+            isWaitingForResponse = true;
+            await ShowDotsUI();
+        }
+        #endregion
+
+        #region Обработчики событий
+        private async void gameBackground_Click(object sender, EventArgs e)
+        {
+            if (isProcessing) return;
+
+            isProcessing = true;
+
+            SwitchSubScene();
+
             switch (sceneIndex)
             {
                 // Утренняя сцена, пробуждение
                 case 0:
+                    await ShowUI();
                     await MorningScene1();
                     break;
                 case 1:
@@ -263,9 +257,10 @@ namespace OBCO_Game
 
                 // Утренняя сцена, дорога в лабораторию
                 case 4:
-                    SwitchScene("morningRoadBackground.jpg");
+                    SwitchScene("morningRoadBackground.jpg", "nagitoHmm.png");
                     break;
                 case 5:
+                    await ShowUI();
                     await MorningRoadScene1();
                     break;
                 case 6:
@@ -279,12 +274,13 @@ namespace OBCO_Game
                     break;
                 // Главная сцена. Лаборатория.
                 case 9:
-                    SwitchScene("labBackground.jpg");
+                    SwitchScene("labBackground.jpg", "nagitoHmm.png");
                     break;
-
                 case 10:
+                    await ShowUI();
                     await LabScene1();
                     break;
+
                 // Первый выбор. Местонахождение Микан.
                 default:
                     DialogResult dialogResult = MessageBox.Show("Дальнейший сюжет игры в разработке. Хотите вернуться в главное меню?", "Attention!", MessageBoxButtons.YesNo);
@@ -292,8 +288,8 @@ namespace OBCO_Game
                     {
                         MainMenu mainMenu = new MainMenu();
                         mainMenu.Show();
-                        MainScene mainScene = new MainScene();
-                        mainScene.Close();
+                        Dispose();
+                        Close();
                     }
                     else
                     {
@@ -302,5 +298,29 @@ namespace OBCO_Game
                     break;
             }
         }
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Вы точно хотите выйти в главное меню?", ":(", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.Show();
+                Close();
+            }
+        }
+        private void welcomeScreen_Click(object sender, EventArgs e)
+        {
+            welcomeScreen.Hide();
+            gameBackground.Show();
+            SetBackgroundImage("morningBackground.jpg");
+            exitButton.Show();
+        }
+        #endregion
+    }
+    public class SceneProps
+    {
+        public string CharacterFileName { get; set; }
+        public string BackgroundFileName { get; set; }
+        public string CharacterSpeech { get; set; }
     }
 }
