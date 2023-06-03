@@ -32,6 +32,9 @@
             this.charNameLabel = new System.Windows.Forms.Label();
             this.speechTextLabel = new System.Windows.Forms.Label();
             this.dotsLabel = new System.Windows.Forms.Label();
+            this.firstChoiceButton = new System.Windows.Forms.Button();
+            this.secondChoiceButton = new System.Windows.Forms.Button();
+            this.thirdChoiceButton = new System.Windows.Forms.Button();
             this.nagitoChar = new System.Windows.Forms.PictureBox();
             this.gameBackground = new System.Windows.Forms.PictureBox();
             this.welcomeScreen = new System.Windows.Forms.PictureBox();
@@ -84,6 +87,48 @@
             this.dotsLabel.TabIndex = 12;
             this.dotsLabel.Text = ".";
             // 
+            // firstChoiceButton
+            // 
+            this.firstChoiceButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.firstChoiceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.firstChoiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.firstChoiceButton.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firstChoiceButton.Location = new System.Drawing.Point(167, 133);
+            this.firstChoiceButton.Name = "firstChoiceButton";
+            this.firstChoiceButton.Size = new System.Drawing.Size(617, 65);
+            this.firstChoiceButton.TabIndex = 13;
+            this.firstChoiceButton.Text = "firstChoice";
+            this.firstChoiceButton.UseVisualStyleBackColor = false;
+            this.firstChoiceButton.Click += new System.EventHandler(this.firstChoiceButton_Click);
+            // 
+            // secondChoiceButton
+            // 
+            this.secondChoiceButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.secondChoiceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.secondChoiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.secondChoiceButton.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.secondChoiceButton.Location = new System.Drawing.Point(167, 204);
+            this.secondChoiceButton.Name = "secondChoiceButton";
+            this.secondChoiceButton.Size = new System.Drawing.Size(617, 65);
+            this.secondChoiceButton.TabIndex = 14;
+            this.secondChoiceButton.Text = "secondChoice";
+            this.secondChoiceButton.UseVisualStyleBackColor = false;
+            this.secondChoiceButton.Click += new System.EventHandler(this.secondChoiceButton_Click);
+            // 
+            // thirdChoiceButton
+            // 
+            this.thirdChoiceButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.thirdChoiceButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.thirdChoiceButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.thirdChoiceButton.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.thirdChoiceButton.Location = new System.Drawing.Point(167, 275);
+            this.thirdChoiceButton.Name = "thirdChoiceButton";
+            this.thirdChoiceButton.Size = new System.Drawing.Size(617, 65);
+            this.thirdChoiceButton.TabIndex = 15;
+            this.thirdChoiceButton.Text = "thirdChoice";
+            this.thirdChoiceButton.UseVisualStyleBackColor = false;
+            this.thirdChoiceButton.Click += new System.EventHandler(this.thirdChoiceButton_Click);
+            // 
             // nagitoChar
             // 
             this.nagitoChar.Image = global::OBCO_Game.Properties.Resources.nagitoWhat;
@@ -121,6 +166,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 536);
+            this.Controls.Add(this.thirdChoiceButton);
+            this.Controls.Add(this.secondChoiceButton);
+            this.Controls.Add(this.firstChoiceButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.charNameLabel);
             this.Controls.Add(this.speechTextLabel);
@@ -148,5 +196,8 @@
         private System.Windows.Forms.Label charNameLabel;
         private System.Windows.Forms.Label speechTextLabel;
         private System.Windows.Forms.Label dotsLabel;
+        private System.Windows.Forms.Button firstChoiceButton;
+        private System.Windows.Forms.Button secondChoiceButton;
+        private System.Windows.Forms.Button thirdChoiceButton;
     }
 }

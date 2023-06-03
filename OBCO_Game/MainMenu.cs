@@ -57,8 +57,7 @@ namespace OBCO_Game
 
             MainScene mainScene = new MainScene();
             mainScene.Show();
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Close();
+            Hide();
         }
     }
 }
