@@ -35,10 +35,11 @@
             this.firstChoiceButton = new System.Windows.Forms.Button();
             this.secondChoiceButton = new System.Windows.Forms.Button();
             this.thirdChoiceButton = new System.Windows.Forms.Button();
-            this.nagitoChar = new System.Windows.Forms.PictureBox();
+            this.charSprite = new System.Windows.Forms.PictureBox();
             this.gameBackground = new System.Windows.Forms.PictureBox();
             this.welcomeScreen = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.nagitoChar)).BeginInit();
+            this.skipButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.charSprite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welcomeScreen)).BeginInit();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             this.charNameLabel.AutoSize = true;
             this.charNameLabel.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.charNameLabel.Location = new System.Drawing.Point(108, 400);
+            this.charNameLabel.Location = new System.Drawing.Point(106, 392);
             this.charNameLabel.Name = "charNameLabel";
             this.charNameLabel.Size = new System.Drawing.Size(48, 24);
             this.charNameLabel.TabIndex = 9;
@@ -70,7 +71,7 @@
             // 
             this.speechTextLabel.AutoSize = true;
             this.speechTextLabel.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.speechTextLabel.Location = new System.Drawing.Point(108, 424);
+            this.speechTextLabel.Location = new System.Drawing.Point(106, 416);
             this.speechTextLabel.Name = "speechTextLabel";
             this.speechTextLabel.Size = new System.Drawing.Size(48, 20);
             this.speechTextLabel.TabIndex = 10;
@@ -129,15 +130,15 @@
             this.thirdChoiceButton.UseVisualStyleBackColor = false;
             this.thirdChoiceButton.Click += new System.EventHandler(this.thirdChoiceButton_Click);
             // 
-            // nagitoChar
+            // charSprite
             // 
-            this.nagitoChar.Image = global::OBCO_Game.Properties.Resources.nagitoWhat;
-            this.nagitoChar.Location = new System.Drawing.Point(89, 54);
-            this.nagitoChar.Name = "nagitoChar";
-            this.nagitoChar.Size = new System.Drawing.Size(240, 326);
-            this.nagitoChar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.nagitoChar.TabIndex = 11;
-            this.nagitoChar.TabStop = false;
+            this.charSprite.Image = global::OBCO_Game.Properties.Resources.nagitoWhat;
+            this.charSprite.Location = new System.Drawing.Point(89, 54);
+            this.charSprite.Name = "charSprite";
+            this.charSprite.Size = new System.Drawing.Size(240, 326);
+            this.charSprite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.charSprite.TabIndex = 11;
+            this.charSprite.TabStop = false;
             // 
             // gameBackground
             // 
@@ -161,6 +162,20 @@
             this.welcomeScreen.TabStop = false;
             this.welcomeScreen.Click += new System.EventHandler(this.welcomeScreen_Click);
             // 
+            // skipButton
+            // 
+            this.skipButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.skipButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.skipButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.skipButton.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.skipButton.Location = new System.Drawing.Point(869, 479);
+            this.skipButton.Name = "skipButton";
+            this.skipButton.Size = new System.Drawing.Size(74, 34);
+            this.skipButton.TabIndex = 16;
+            this.skipButton.Text = "Skip";
+            this.skipButton.UseVisualStyleBackColor = false;
+            this.skipButton.Click += new System.EventHandler(this.skipButton_Click);
+            // 
             // MainScene
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,17 +184,18 @@
             this.Controls.Add(this.thirdChoiceButton);
             this.Controls.Add(this.secondChoiceButton);
             this.Controls.Add(this.firstChoiceButton);
+            this.Controls.Add(this.skipButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.charNameLabel);
             this.Controls.Add(this.speechTextLabel);
-            this.Controls.Add(this.nagitoChar);
+            this.Controls.Add(this.charSprite);
             this.Controls.Add(this.dotsLabel);
             this.Controls.Add(this.gameBackground);
             this.Controls.Add(this.welcomeScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainScene";
             this.Text = "MorningScene";
-            ((System.ComponentModel.ISupportInitialize)(this.nagitoChar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.charSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welcomeScreen)).EndInit();
             this.ResumeLayout(false);
@@ -192,12 +208,13 @@
         private System.Windows.Forms.Label exitButton;
         private System.Windows.Forms.PictureBox welcomeScreen;
         private System.Windows.Forms.PictureBox gameBackground;
-        private System.Windows.Forms.PictureBox nagitoChar;
+        private System.Windows.Forms.PictureBox charSprite;
         private System.Windows.Forms.Label charNameLabel;
         private System.Windows.Forms.Label speechTextLabel;
         private System.Windows.Forms.Label dotsLabel;
         private System.Windows.Forms.Button firstChoiceButton;
         private System.Windows.Forms.Button secondChoiceButton;
         private System.Windows.Forms.Button thirdChoiceButton;
+        private System.Windows.Forms.Button skipButton;
     }
 }

@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.Json;
+using System.Web;
+using System.Media;
+using System.Runtime.InteropServices;
 
 namespace OBCO_Game
 {
@@ -20,16 +23,18 @@ namespace OBCO_Game
 
             exitButton.Hide();
             gameBackground.Hide(); 
-            nagitoChar.Hide();
+            charSprite.Hide();
             charNameLabel.Hide();
 
             firstChoiceButton.Hide();
             secondChoiceButton.Hide();
             thirdChoiceButton.Hide();
+            skipButton.Hide();
 
             charNameLabel.Text = "Нагито";
             speechTextLabel.Text = string.Empty;
             dotsLabel.Text = string.Empty;
+            sceneIndex = 0;
         }
 
         private int sceneIndex = 0;
@@ -54,7 +59,7 @@ namespace OBCO_Game
                 CharacterFileName = "nagitoWoke.png",
                 BackgroundFileName = "morningBox.jpg",
                 CharacterSpeech = "Когда Нагито проснулся, лучи утреннего солнца проникали сквозь занавески, наполняя" +
-                                  "\nкомнату светом. Он потянулся и вздохнул, осознавая, что перед ним новый день полон" +
+                                  "\nкомнату светом. Он потянулся и вздохнул, осознавая, что перед ним новый день полный" +
                                   "\nвозможностей."
             };
             await SceneBuilder(props);
@@ -95,8 +100,8 @@ namespace OBCO_Game
             {
                 CharacterFileName = "nagitoHmm.png",
                 BackgroundFileName = "morningBox.jpg",
-                CharacterSpeech = "Это очень важно, потому что так ей будет проще поступить в лучший университет" +
-                "\nво всем мире, в МГТУ имени Г.И.Носова."
+                CharacterSpeech = "Это очень важно, потому что так ей будет проще сдать сессию в лучшем университете" +
+                "\nвсего мира, в МГТУ имени Г.И.Носова."
             };
             await SceneBuilder(props);
         }
@@ -117,8 +122,8 @@ namespace OBCO_Game
             {
                 CharacterFileName = "nagitoHmm.png",
                 BackgroundFileName = "morningRoadBox.jpg",
-                CharacterSpeech = "Нагито внимательно наблюдал за ними, задумываясь о том, что каждый из них" +
-                                  "\nскрывает за своей внешностью."
+                CharacterSpeech = "Нагито внимательно наблюдал за ними, задумываясь о том, что каждый из них скрывает за" +
+                                "\nсвоей внешностью."
             };
             await SceneBuilder(props);
         }
@@ -138,8 +143,8 @@ namespace OBCO_Game
             {
                 CharacterFileName = "nagitoThinking.png",
                 BackgroundFileName = "morningRoadBox.jpg",
-                CharacterSpeech = "Жаль, что я не могу насладиться прогулкой. Но обещание есть обещание, и я" +
-                                  "\nдолжен встретиться с Микан."
+                CharacterSpeech = "Жаль, что я не могу насладиться прогулкой. Но обещание есть обещание, и я должен" +
+                                "\nвстретиться с Микан."
             }; 
             await SceneBuilder(props);
         }
@@ -163,13 +168,183 @@ namespace OBCO_Game
             };
             await SceneBuilder(props);
         }
+
         private async Task LabScene1()
         {
             SceneData props = new SceneData
             {
                 CharacterFileName = "nagitoHmm.png",
                 BackgroundFileName = "labBox.jpg",
-                CharacterSpeech = "Наконец-то я здесь. Теперь осталось найти Микан. Куда же она решила пойти?"
+                CharacterSpeech = "Нагито уверенно вошел в лабораторию, в которой он был уже далеко не раз."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabScene2()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox.jpg",
+                CharacterSpeech = "Он поступил в МГТУ имени Г.И. Носова на направление \"Информационная безопасность\"" +
+                                "\nпосле успешной сдачи вступительных экзаменов. Уже на втором курсе, проявляя огромный" +
+                                "\nинтерес к научным исследованиям, он решил подрабатывать в местной лаборатории," +
+                                "\nспециализирующейся на изучении различных микроорганизмов."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabScene3()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox.jpg",
+                CharacterSpeech = "Его аналитический склад ума и тонкое чутье позволили ему отыскать интересные" +
+                                "\nзакономерности и связи в этих исследованиях. Он проводил дни и ночи, углубляясь" +
+                                "\nв свои исследования и стремясь раскрыть тайны, прячущиеся за этими исследованиями."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabScene4()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox.jpg",
+                CharacterSpeech = "В процессе работы в лаборатории, Нагито познакомился с Микан, молодым и талантливым" +
+                                "\nисследователем, увлеченным астрофизикой и информатикой. Их общая страсть к науке и" +
+                                "\nлюбовь к загадкам привели их к сотрудничеству. Нагито и Микан проводили много времени" +
+                                "\nвместе, обсуждая идеи, проводя эксперименты и делая различные открытия."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabScene5()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox.jpg",
+                CharacterSpeech = "Навевают приятные воспоминания, нужно отыскать Микан."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabScene6()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox.jpg",
+                CharacterSpeech = "Куда же она могла направиться?"
+            };
+            await SceneBuilder(props);
+        }
+
+        private async Task LabTransitionScene1()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox2.jpg",
+                CharacterSpeech = "Нагито торопливо шел по коридорам научной лаборатории, направляясь к кабинету Микан."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabTransitionScene2()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox2.jpg",
+                CharacterSpeech = "Вокруг него царила оживленная атмосфера научной работы: исследователи в белых халатах" +
+                                "\nпроходили мимо, обсуждая последние результаты экспериментов, приборы жужжали и" +
+                                "\nиздавали тихие звуки, создавая фоновую акустику исследовательской деятельности."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabTransitionScene3()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox2.jpg",
+                CharacterSpeech = "По пути Нагито замечал знакомые лица, с кем он ранее работал вместе над научными" +
+                                "\nпроектами. Все они были поглощены своими исследованиями, стремясь найти ответы на" +
+                                "\nинтересующие их вопросы и сделать новые открытия. Нагито не мог не восхищаться их" +
+                                "\nнастойчивостью и стремлением к знаниям."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabTransitionScene4()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "labBox2.jpg",
+                CharacterSpeech = "Нагито неторопливо подошел к двери кабинета, стараясь не производить лишнего шума." +
+                                "\nОн осторожно повернул ручку и медленно открыл дверь, чтобы не пугать Микан."
+            };
+            await SceneBuilder(props);
+        }
+
+        private async Task LabCabSceneTransition()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "blackScreen.png",
+                CharacterSpeech = "..."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene1()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "mikanWonderBox.jpg",
+                CharacterSpeech = "Однако, когда он вошел, он увидел, что Микан была сильно удивлена его появлением.."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene2()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "mikanWonderBox.jpg",
+                CharacterSpeech = "Микан, стоявшая перед дверью, вздрогнула и едва не уронила свою тетрадь по подготовке" +
+                                "\nк предстоящим экзаменам."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene3()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "nagitoHmm.png",
+                BackgroundFileName = "mikanWonderBox.jpg",
+                CharacterSpeech = "Ее глаза широко раскрылись, и она не могла скрыть свое удивление. В ее взгляде смешались" +
+                                "\nизумление и легкая неуверенность, словно она не знала, как правильно отреагировать на" +
+                                "\nтакое неожиданное появление Нагито."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene4()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanShy.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Привет Нагито. Не ожидала тебя увидеть прямо сейчас. Думала ты проспал..."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene5()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanShy.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Привет Нагито. Не ожидала тебя увидеть прямо сейчас. Думала ты проспал..."
             };
             await SceneBuilder(props);
         }
@@ -178,24 +353,23 @@ namespace OBCO_Game
         private async void gameBackground_Click(object sender, EventArgs e)
         {
             if (isProcessing) return;
-
             isProcessing = true;
 
             SwitchSubScene();
-
             switch (sceneIndex)
             {
                 // Утренняя сцена, пробуждение
                 case 1:
-                    HideNagito();
+                    HideCharacter();
                     ShowUI();
+                    PlaySound("thinPurple.wav");
                     await MorningScene1();
                     break;
                 case 2:
                     await MorningScene2();
                     break;
                 case 3:
-                    ShowNagito();
+                    ShowCharacter("Нагито");
                     await MorningScene3();
                     break;
                 case 4:
@@ -210,18 +384,20 @@ namespace OBCO_Game
 
                 // Утренняя сцена, дорога в лабораторию
                 case 7:
-                    HideNagito();
-                    SwitchScene("morningRoadBackground.jpg", "nagitoHmm.png");
+                    HideCharacter();
+                    StopSound();
+                    SwitchScene("loadingScreen.jpg", "morningRoadBackground.jpg", "nagitoHmm.png");
                     break;
                 case 8:
                     ShowUI();
+                    PlaySound("investigation.wav");
                     await MorningRoadScene1();
                     break;
                 case 9:
                     await MorningRoadScene2();
                     break;
                 case 10:
-                    ShowNagito();
+                    ShowCharacter("Нагито");
                     await MorningRoadScene3();
                     break;
                 case 11:
@@ -235,27 +411,44 @@ namespace OBCO_Game
                     break;
                 // Главная сцена. Лаборатория.
                 case 14:
-                    SwitchScene("labBackground.jpg", "nagitoHmm.png");
+                    StopSound();
+                    SwitchScene("loadingScreen.jpg", "labBackground.jpg", "nagitoHmm.png");
                     break;
-                //  Первый выбор, не влияет на концовку.
+                //  * Первый выбор, не влияет на концовку.
                 case 15:
-                    ShowNagito();
+                    PlaySound("investigation.wav");
+                    HideCharacter();
                     ShowUI();
                     await LabScene1();
-                    break;           
+                    break;
                 case 16:
-                    ChoiceText("Кабинет Микан", "Химическая лаборатория", "Комната отдыха");
-
-                    ShowButtons();
+                    await LabScene2();
                     break;
                 case 17:
-                    await Task.Delay(1000);
+                    await LabScene3();
+                    break;
+                case 18:
+                    await LabScene4();
+                    break;
+                case 19:
+                    ShowCharacter("Нагито");
+                    await LabScene5();
+                    break;
+                case 20:
+                    ShowCharacter("Нагито");
+                    await LabScene6();
+                    break;
+                case 21:
+                    ChoiceText("Кабинет Микан", "Химическая лаборатория", "Комната отдыха");
+                    ShowButtons();
+                    break;
+                case 22:
                     HideButtons();
-
-                    await Task.Delay(1000);
+                    await Task.Delay(500);
                     if (dialogueChoice == "A")
                     {
-                        gameBackground.Enabled = true;
+                        isProcessing = false;
+                        firstChoiceButton.Enabled = false;
                         SceneData props = new SceneData
                         {
                             CharacterFileName = "nagitoHmm.png",
@@ -263,18 +456,91 @@ namespace OBCO_Game
                             CharacterSpeech = "Попробую сходить в ее кабинет. Наверняка она повторяет учебный материал."
                         };
                         await SceneBuilder(props);
-
+                        gameBackground.Enabled = true;
                     }
                     else if (dialogueChoice == "B")
                     {
+                        isProcessing = false;
+                        secondChoiceButton.Enabled = false;
+                        SceneData props = new SceneData
+                        {
+                            CharacterFileName = "nagitoHmm.png",
+                            BackgroundFileName = "labBox.jpg",
+                            CharacterSpeech = "Вряд ли она пойдет в лабораторию, у нее нет к ней доступа. Может она находится" +
+                                              "\nв другом месте?"
+                        };
+                        sceneIndex -= 2;
+
+                        await SceneBuilder(props);
                         gameBackground.Enabled = true;
-                        // Исполнить ветвь B диалога
                     }
                     else if (dialogueChoice == "C")
                     {
+                        isProcessing = false;
+                        thirdChoiceButton.Enabled = false;
+                        SceneData props = new SceneData
+                        {
+                            CharacterFileName = "nagitoHmm.png",
+                            BackgroundFileName = "labBox.jpg",
+                            CharacterSpeech = "Точно, она же написала мне в Телеграме, что она сейчас находится в своем кабинете" +
+                                              "\nвряд ли она пошла в комнату отдыха."
+                        };
+                        sceneIndex -= 2;
+
+                        await SceneBuilder(props);
                         gameBackground.Enabled = true;
-                        // Исполнить ветвь С диалога
                     }
+                    break;
+
+                // Промежуточная сцена. Дорога в кабинет Микан.
+                case 23:
+                    StopSound();
+                    SwitchScene("loadingScreen.jpg", "labBackground2.jpg", "nagitoHmm.png");
+                    break;
+                case 24:
+                    PlaySound("thinPurple.wav");
+                    HideCharacter();
+                    ShowUI();
+                    await LabTransitionScene1();
+                    break;
+                case 25:
+                    await LabTransitionScene2();
+                    break;
+                case 26:
+                    await LabTransitionScene3();
+                    break;
+                case 27:
+                    await LabTransitionScene4();
+                    break;
+
+                // Главная сцена. Кабинет Микан.
+                case 28:
+                    StopSound();
+                    PlaySound("doorOpening.wav");
+                    await Task.Delay(1200);
+                    ShowCharacter("Микан");
+                    charSprite.Hide();
+
+                    PlaySound("huh.wav");
+                    await LabCabSceneTransition();
+                    break;
+                case 29:
+                    PlaySound("girlOfTheShell.wav");
+                    HideCharacter();
+                    await LabCabScene1();
+                    break;
+                case 30:
+                    await LabCabScene2();
+                    break;
+                case 31:
+                    await LabCabScene3();
+                    break;
+                case 32:
+                    ShowCharacter("Микан");
+                    await LabCabScene4();
+                    break;
+                case 33:
+                    await LabCabScene5();
                     break;
                 default:
                     DialogResult dialogResult = MessageBox.Show("Дальнейший сюжет игры в разработке. Хотите вернуться в главное меню?", "Attention!", MessageBoxButtons.YesNo);
@@ -294,15 +560,15 @@ namespace OBCO_Game
         }
 
         #region Методы управления интерфейсом
-        private void ShowNagito()
+        private void ShowCharacter(string charName)
         {
-            nagitoChar.Show();
+            charSprite.Show();
             charNameLabel.Show();
-            charNameLabel.Text = "Нагито";
+            charNameLabel.Text = charName;
         }
-        private void HideNagito()
+        private void HideCharacter()
         {
-            nagitoChar.Hide();
+            charSprite.Hide();
             charNameLabel.Hide();
             charNameLabel.Text = string.Empty;
         }
@@ -312,13 +578,15 @@ namespace OBCO_Game
             speechTextLabel.Show();
             exitButton.Show();
             dotsLabel.Show();
+            skipButton.Show();
         }
         private void HideUI()
         {
             exitButton.Hide();
-            nagitoChar.Hide();
+            charSprite.Hide();
             charNameLabel.Hide();
             dotsLabel.Hide();
+            skipButton.Hide();
             speechTextLabel.Hide();
             speechTextLabel.Text = string.Empty;
             dotsLabel.Text = string.Empty;
@@ -350,21 +618,22 @@ namespace OBCO_Game
         }
         private void ChoiceText(string firstChoiceText, string secondChoiceText, string thirdChoiceText)
         {
+            // Текст кнопок выбора
             firstChoiceButton.Text = firstChoiceText;
             secondChoiceButton.Text = secondChoiceText;
             thirdChoiceButton.Text = thirdChoiceText;
         }
         #endregion
 
-        #region Методы для работы со спрайтами и речью
-        private void SetNagitoSprite(string fileName)
+        #region Методы для работы со мультимедиа и речью
+        private void SetCharacterSprite(string fileName)
         {
             string path = Path.Combine(Application.StartupPath, "Sprites", fileName);
 
             if (File.Exists(path))
             {
                 Image character = Image.FromFile(path);
-                nagitoChar.Image = character;
+                charSprite.Image = character;
             }
             else
             {
@@ -385,6 +654,30 @@ namespace OBCO_Game
                 MessageBox.Show("Ошибка в коде. Неправильное расположение/название спрайта.");
             }
         }
+        private void PlaySound(string fileName)
+        {
+            string path = Path.Combine(Application.StartupPath, "Sounds", fileName);
+
+            if (File.Exists(path))
+            {
+                using (SoundPlayer soundPlayer = new SoundPlayer(path))
+                {
+                    soundPlayer.Play();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ошибка в коде. Неправильное расположение/название звукового файла.");
+            }
+        }
+        private void StopSound()
+        {
+            SoundPlayer soundPlayer = new SoundPlayer();
+            if (soundPlayer != null)
+            {
+                soundPlayer.Stop();
+            }
+        }
         private async Task TypeSpeech(string speech)
         {
             speechTextLabel.Text = string.Empty;
@@ -397,13 +690,13 @@ namespace OBCO_Game
         #endregion
 
         #region Методы работы со сценами
-        private async void SwitchScene(string backgroundFileName, string characterFileName)
+        private async void SwitchScene(string loadingFileName, string backgroundFileName, string characterFileName)
         {
             HideUI();
-            SetBackgroundImage("loadingScreen.jpg");
+            SetBackgroundImage(loadingFileName);
             await Task.Delay(3000);
             SetBackgroundImage(backgroundFileName);
-            SetNagitoSprite(characterFileName);
+            SetCharacterSprite(characterFileName);
             isProcessing = false;
         }
         private void SwitchSubScene()
@@ -415,7 +708,7 @@ namespace OBCO_Game
         }
         private async Task SceneBuilder(SceneData props)
         {
-            SetNagitoSprite(props.CharacterFileName);
+            SetCharacterSprite(props.CharacterFileName);
             SetBackgroundImage(props.BackgroundFileName);
             await TypeSpeech(props.CharacterSpeech);
 
@@ -431,30 +724,27 @@ namespace OBCO_Game
             dialogueChoice = "A";
 
             firstChoiceButton.Enabled = false;
-            secondChoiceButton.Enabled = false;
-            thirdChoiceButton.Enabled = false;
 
-            sceneIndex++;
+            isProcessing = false;
+            gameBackground_Click(sender, e);
         }
         private void secondChoiceButton_Click(object sender, EventArgs e)
         {
             dialogueChoice = "B";
 
-            firstChoiceButton.Enabled = false;
             secondChoiceButton.Enabled = false;
-            thirdChoiceButton.Enabled = false;
 
-            sceneIndex++;
+            isProcessing = false;
+            gameBackground_Click(sender, e);
         }
         private void thirdChoiceButton_Click(object sender, EventArgs e)
         {
             dialogueChoice = "C";
 
-            firstChoiceButton.Enabled = false;
-            secondChoiceButton.Enabled = false;
             thirdChoiceButton.Enabled = false;
 
-            sceneIndex++;
+            isProcessing = false;
+            gameBackground_Click(sender, e);
         }
 
         private void welcomeScreen_Click(object sender, EventArgs e)
@@ -465,11 +755,27 @@ namespace OBCO_Game
             exitButton.Show();
         }
 
+        private void skipButton_Click(object sender, EventArgs e)
+        {
+            if (isProcessing) return;
+
+            isProcessing = true;
+
+            if (sceneIndex < 21)
+            {
+                isProcessing = false;
+                sceneIndex = 19;
+                gameBackground_Click(sender, e);
+                skipButton.Enabled = false;
+            }
+        }
+
         private void exitButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Вы точно хотите выйти в главное меню?", ":(", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                StopSound();
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.Show();
                 Close();
