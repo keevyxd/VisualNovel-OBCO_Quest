@@ -35,10 +35,10 @@
             this.firstChoiceButton = new System.Windows.Forms.Button();
             this.secondChoiceButton = new System.Windows.Forms.Button();
             this.thirdChoiceButton = new System.Windows.Forms.Button();
+            this.skipButton = new System.Windows.Forms.Button();
             this.charSprite = new System.Windows.Forms.PictureBox();
             this.gameBackground = new System.Windows.Forms.PictureBox();
             this.welcomeScreen = new System.Windows.Forms.PictureBox();
-            this.skipButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.charSprite)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameBackground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.welcomeScreen)).BeginInit();
@@ -84,9 +84,8 @@
             this.dotsLabel.Font = new System.Drawing.Font("Trebuchet MS", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dotsLabel.Location = new System.Drawing.Point(791, 464);
             this.dotsLabel.Name = "dotsLabel";
-            this.dotsLabel.Size = new System.Drawing.Size(22, 29);
+            this.dotsLabel.Size = new System.Drawing.Size(0, 29);
             this.dotsLabel.TabIndex = 12;
-            this.dotsLabel.Text = ".";
             // 
             // firstChoiceButton
             // 
@@ -130,6 +129,20 @@
             this.thirdChoiceButton.UseVisualStyleBackColor = false;
             this.thirdChoiceButton.Click += new System.EventHandler(this.thirdChoiceButton_Click);
             // 
+            // skipButton
+            // 
+            this.skipButton.BackColor = System.Drawing.Color.LemonChiffon;
+            this.skipButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.skipButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.skipButton.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.skipButton.Location = new System.Drawing.Point(869, 479);
+            this.skipButton.Name = "skipButton";
+            this.skipButton.Size = new System.Drawing.Size(74, 34);
+            this.skipButton.TabIndex = 16;
+            this.skipButton.Text = "Skip";
+            this.skipButton.UseVisualStyleBackColor = false;
+            this.skipButton.Click += new System.EventHandler(this.skipButton_Click);
+            // 
             // charSprite
             // 
             this.charSprite.Image = global::OBCO_Game.Properties.Resources.nagitoWhat;
@@ -161,20 +174,6 @@
             this.welcomeScreen.TabIndex = 5;
             this.welcomeScreen.TabStop = false;
             this.welcomeScreen.Click += new System.EventHandler(this.welcomeScreen_Click);
-            // 
-            // skipButton
-            // 
-            this.skipButton.BackColor = System.Drawing.Color.LemonChiffon;
-            this.skipButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.skipButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.skipButton.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.skipButton.Location = new System.Drawing.Point(869, 479);
-            this.skipButton.Name = "skipButton";
-            this.skipButton.Size = new System.Drawing.Size(74, 34);
-            this.skipButton.TabIndex = 16;
-            this.skipButton.Text = "Skip";
-            this.skipButton.UseVisualStyleBackColor = false;
-            this.skipButton.Click += new System.EventHandler(this.skipButton_Click);
             // 
             // MainScene
             // 

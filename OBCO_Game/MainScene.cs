@@ -80,7 +80,7 @@ namespace OBCO_Game
             {
                 CharacterFileName = "nagitoWhat.png",
                 BackgroundFileName = "morningBox.jpg",
-                CharacterSpeech = "Я опаздываю на встречу с Микан в лаборатории. Лучше потороплюсь!"
+                CharacterSpeech = "Я опаздываю на встречу с Микан в лаборатории. Лучше поторопиться."
             };
             await SceneBuilder(props);
         }
@@ -342,9 +342,118 @@ namespace OBCO_Game
         {
             SceneData props = new SceneData
             {
+                CharacterFileName = "mikanPoint.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Пока тебя не было я готовилась к предстоящей сессии."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene6()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanPoint.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Привет, Микан. Да, поздновато я встал сегодня. Извини, если тебя это смутило. А ты " +
+                                "\nготовишься к сессии? Как идут подготовки?"
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene7()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Да, конечно, готовлюсь... пытаюсь быть готовой к экзаменам. Но, если честно, я... не" +
+                                "\nсовсем уверена в своих знаниях."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene8()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Все это время я пыталась изучать... эм... микроорганизмы особого типа. Но чего-то мне" +
+                                "\nкажется, что это отвлекло меня от основного предмета."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene9()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Понимаю. Иногда бывает трудно сосредоточиться на нужных вещах, особенно когда есть" +
+                                "\nдругие интересы. Но ты должна понимать, что сессия - очень ответственная период учебы." +
+                                "\nЕсли плохо подготовишься, то тебя могут исключить."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene10()
+        {
+            SceneData props = new SceneData
+            {
                 CharacterFileName = "mikanShy.png",
                 BackgroundFileName = "labCabinetBox.jpg",
-                CharacterSpeech = "Привет Нагито. Не ожидала тебя увидеть прямо сейчас. Думала ты проспал..."
+                CharacterSpeech = "Да, конечно... Я понимаю это и не хочу быть обузой для тебя. Я чувствую, что все должно" +
+                                "\nбыть готово, иначе... Мне будет немного стыдно."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene11()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanShy.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Микан, не говори так. Ты никогда не будешь обузой для меня. Мы друзья, и я хочу помочь" +
+                                "\nтебе. Ты справишься с экзаменом, я уверен в тебе."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene12()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanShy.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Спасибо, Нагито. Я ценю твою поддержку. Но... если не затруднит, может быть, ты мог бы" +
+                                "\nпроверить мои знания, чтобы я узнала, насколько я подготовлена?"
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene13()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanShy.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Конечно, я с удовольствием помогу тебе проверить свои знания. Это будет полезно для тебя."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task LabCabScene14()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanPoint.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Хорошо, спасибо большое. Тогда приступим."
+            };
+            await SceneBuilder(props);
+        }
+
+        private async Task TestScene1()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanPoint.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Хорошо, спасибо большое. Тогда приступим."
             };
             await SceneBuilder(props);
         }
@@ -542,12 +651,48 @@ namespace OBCO_Game
                 case 33:
                     await LabCabScene5();
                     break;
+                case 34:
+                    ShowCharacter("Нагито");
+                    await LabCabScene6();
+                    break;
+                case 35:
+                    ShowCharacter("Микан");
+                    await LabCabScene7();
+                    break;
+                case 36:
+                    await LabCabScene8();
+                    break;
+                case 37:
+                    ShowCharacter("Нагито");
+                    await LabCabScene9();
+                    break;
+                case 38:
+                    ShowCharacter("Микан");
+                    await LabCabScene10();
+                    break;
+                case 39:
+                    ShowCharacter("Нагито");
+                    await LabCabScene11();
+                    break;
+                case 40:
+                    ShowCharacter("Микан");
+                    await LabCabScene12();
+                    break;
+                case 41:
+                    ShowCharacter("Нагито");
+                    await LabCabScene13();
+                    break;
+                case 42:
+                    ShowCharacter("Микан");
+                    await LabCabScene14();
+                    break;
                 default:
                     DialogResult dialogResult = MessageBox.Show("Дальнейший сюжет игры в разработке. Хотите вернуться в главное меню?", "Attention!", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         MainMenu mainMenu = new MainMenu();
                         mainMenu.Show();
+                        StopSound();
                         Dispose();
                         Close();
                     }
@@ -764,7 +909,7 @@ namespace OBCO_Game
             if (sceneIndex < 21)
             {
                 isProcessing = false;
-                sceneIndex = 19;
+                sceneIndex = 27; //19
                 gameBackground_Click(sender, e);
                 skipButton.Enabled = false;
             }
