@@ -63,6 +63,16 @@ namespace OBCO_Game.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap computerBackground {
+            get {
+                object obj = ResourceManager.GetObject("computerBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap labBackground {
             get {
                 object obj = ResourceManager.GetObject("labBackground", resourceCulture);
@@ -176,6 +186,26 @@ namespace OBCO_Game.Properties {
         internal static System.Drawing.Bitmap nagitoWoke {
             get {
                 object obj = ResourceManager.GetObject("nagitoWoke", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap testBackground1 {
+            get {
+                object obj = ResourceManager.GetObject("testBackground1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap testScreen {
+            get {
+                object obj = ResourceManager.GetObject("testScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

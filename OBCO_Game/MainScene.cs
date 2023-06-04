@@ -12,6 +12,7 @@ using System.Text.Json;
 using System.Web;
 using System.Media;
 using System.Runtime.InteropServices;
+using static OBCO_Game.TestScene;
 
 namespace OBCO_Game
 {
@@ -22,7 +23,7 @@ namespace OBCO_Game
             InitializeComponent();
 
             exitButton.Hide();
-            gameBackground.Hide(); 
+            gameBackground.Hide();
             charSprite.Hide();
             charNameLabel.Hide();
 
@@ -34,12 +35,13 @@ namespace OBCO_Game
             charNameLabel.Text = "Нагито";
             speechTextLabel.Text = string.Empty;
             dotsLabel.Text = string.Empty;
-            sceneIndex = 0;
         }
 
-        private int sceneIndex = 0;
+        private int sceneIndex = 0, sceneIndexNew = 44;
         private static bool isWaitingForResponse = false, isProcessing = false;
         private static string dialogueChoice = string.Empty;
+
+        int resultCorrectAnswers = ResultData.CorrectAnswers;
 
         #region Методы сцен
         private async Task MorningScene1()
@@ -451,9 +453,125 @@ namespace OBCO_Game
         {
             SceneData props = new SceneData
             {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Ну, надеюсь, что я не провалилась."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task TestScene2()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Да, конечно. Дай немного времени на проверку."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task TestScene3()
+        {
+            SceneData props = new SceneData
+            {
                 CharacterFileName = "mikanPoint.png",
                 BackgroundFileName = "labCabinetBox.jpg",
-                CharacterSpeech = "Хорошо, спасибо большое. Тогда приступим."
+                CharacterSpeech = "Хорошо, жду твоего вердикта!"
+            };
+            await SceneBuilder(props);
+        }
+
+        private async Task ResultsScene1()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Ну, какие результаты?"
+            };
+            await SceneBuilder(props);
+        }
+
+        private async Task ExcellentResultsScene1()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = $"У тебя {resultCorrectAnswers} правильных ответов из 30." +
+                                $"\nИдеально! Бог ты мой)))))))"
+            };
+            await SceneBuilder(props);
+        }
+        private async Task ExcellenResultsScene2()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "ААААА"
+            };
+            await SceneBuilder(props);
+        }
+        private async Task GoodResultsScene1()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = $"У тебя {resultCorrectAnswers} правильных ответов из 30." +
+                                $"\nМолодец! Вполне неплохо подготовилась."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task GoodResultsScene2()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanHuh.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Да, конечно. Дай немного времени на проверку."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task SatisfactoryResultsScene1()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanPoint.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = $"У тебя {resultCorrectAnswers} правильных ответов из 30. Удовлетворительный" +
+                                $"\nрезультат, надо бы подготовиться получше."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task SatisfactoryResultsScene2()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanPoint.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "Хорошо, жду твоего вердикта!"
+            };
+            await SceneBuilder(props);
+        }
+        private async Task BadResultsScene1()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanPoint.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = "...\nНе хочу тебя расстраивать, но у тебя очень плохой результат." +
+                                    $"\nВсего {resultCorrectAnswers} правильных ответов из 30."
+            };
+            await SceneBuilder(props);
+        }
+        private async Task BadResultsScene2()
+        {
+            SceneData props = new SceneData
+            {
+                CharacterFileName = "mikanPoint.png",
+                BackgroundFileName = "labCabinetBox.jpg",
+                CharacterSpeech = $"..."
             };
             await SceneBuilder(props);
         }
@@ -686,6 +804,51 @@ namespace OBCO_Game
                     ShowCharacter("Микан");
                     await LabCabScene14();
                     break;
+                case 43:
+                    TestScene testScene = new TestScene();
+                    testScene.TestFinished += TestScene_TestFinished;
+                    testScene.Show();
+                    break;
+                case 44:
+                    ShowCharacter("Нагито");
+                    await TestScene2();
+                    break;
+                case 45:
+                    ShowCharacter("Микан");
+                    await TestScene3();
+                    break;
+                case 46:
+                    StopSound();
+                    SwitchScene("loadingScreen.jpg", "labCabinetBox.jpg", "nagitoShy.png");
+                    break;
+                // Результаты теста. Концовки.
+                case 47:
+                    ShowUI();
+                    ShowCharacter("Нагито");
+                    if (resultCorrectAnswers <= 10)
+                    {
+                        PlaySound("girlOfTheShell.wav");
+                        await BadResultsScene1();
+                    }
+                    else if (resultCorrectAnswers <= 20)
+                    {
+                        PlaySound("thinPurple.wav");
+                        await SatisfactoryResultsScene1();
+                    }
+                    else if (resultCorrectAnswers < 30)
+                    {
+                        PlaySound("investigation.wav");
+                        await GoodResultsScene1();
+                    }
+                    else if (resultCorrectAnswers <= 30)
+                    { 
+                        PlaySound("huh.wav");
+                        await ExcellentResultsScene1();
+                    }
+                    HideCharacter();
+                    ShowUI();
+                    await LabScene1();
+                    break;
                 default:
                     DialogResult dialogResult = MessageBox.Show("Дальнейший сюжет игры в разработке. Хотите вернуться в главное меню?", "Attention!", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
@@ -701,6 +864,20 @@ namespace OBCO_Game
                         Environment.Exit(0);
                     }
                     break;
+            }
+        }
+        private async void TestScene_TestFinished(object sender, EventArgs e)
+        {
+            SwitchSubScene();
+            switch (sceneIndexNew)
+            {
+                case 44:
+                    ShowUI();
+                    ShowCharacter("Микан");
+                    PlaySound("thinPurple.wav");
+                    await TestScene1();
+                    break;
+                
             }
         }
 
@@ -892,14 +1069,6 @@ namespace OBCO_Game
             gameBackground_Click(sender, e);
         }
 
-        private void welcomeScreen_Click(object sender, EventArgs e)
-        {
-            welcomeScreen.Hide();
-            gameBackground.Show();
-            SetBackgroundImage("morningBackground.jpg");
-            exitButton.Show();
-        }
-
         private void skipButton_Click(object sender, EventArgs e)
         {
             if (isProcessing) return;
@@ -909,12 +1078,11 @@ namespace OBCO_Game
             if (sceneIndex < 21)
             {
                 isProcessing = false;
-                sceneIndex = 27; //19
+                sceneIndex = 40; //19 27
                 gameBackground_Click(sender, e);
                 skipButton.Enabled = false;
             }
         }
-
         private void exitButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Вы точно хотите выйти в главное меню?", ":(", MessageBoxButtons.YesNo);
@@ -925,6 +1093,14 @@ namespace OBCO_Game
                 mainMenu.Show();
                 Close();
             }
+        }
+
+        private void welcomeScreen_Click(object sender, EventArgs e)
+        {
+            welcomeScreen.Hide();
+            gameBackground.Show();
+            SetBackgroundImage("morningBackground.jpg");
+            exitButton.Show();
         }
         #endregion
     }
