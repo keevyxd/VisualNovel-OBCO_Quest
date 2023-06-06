@@ -70,9 +70,11 @@
             this.radioButton1.Location = new System.Drawing.Point(169, 242);
             this.radioButton1.MaximumSize = new System.Drawing.Size(600, 0);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(14, 13);
+            this.radioButton1.Size = new System.Drawing.Size(271, 19);
             this.radioButton1.TabIndex = 3;
             this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "                                                                                 " +
+    ".";
             this.radioButton1.UseVisualStyleBackColor = false;
             // 
             // radioButton2
@@ -83,9 +85,11 @@
             this.radioButton2.Location = new System.Drawing.Point(169, 290);
             this.radioButton2.MaximumSize = new System.Drawing.Size(600, 0);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(14, 13);
+            this.radioButton2.Size = new System.Drawing.Size(271, 19);
             this.radioButton2.TabIndex = 4;
             this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "                                                                                 " +
+    ".";
             this.radioButton2.UseVisualStyleBackColor = false;
             // 
             // radioButton3
@@ -96,8 +100,10 @@
             this.radioButton3.Location = new System.Drawing.Point(169, 337);
             this.radioButton3.MaximumSize = new System.Drawing.Size(400, 0);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(14, 13);
+            this.radioButton3.Size = new System.Drawing.Size(271, 19);
             this.radioButton3.TabIndex = 5;
+            this.radioButton3.Text = "                                                                                 " +
+    ".";
             this.radioButton3.UseVisualStyleBackColor = false;
             // 
             // testScreen

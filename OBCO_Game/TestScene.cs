@@ -28,7 +28,7 @@ namespace OBCO_Game
         }
         private void SetBackground(string fileName)
         {
-            string path = Path.Combine(Application.StartupPath, "Sprites", fileName);
+            string path = Path.Combine(Application.StartupPath, "Resources", fileName);
 
             if (File.Exists(path))
             {
