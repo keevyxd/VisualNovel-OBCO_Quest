@@ -1181,14 +1181,14 @@ namespace OBCO_Game
                     PlaySound("ruriNoTori.wav");
                     await BadRoot1();
                     break;
-                case 75:
+                case 74:
                     ShowUI();
                     await BadRoot1();
                     break;
-                case 76:
+                case 75:
                     await BadRoot2();
                     break;
-                case 77:
+                case 76:
                     sceneIndex = 57;
                     await BadRoot3();
                     break;

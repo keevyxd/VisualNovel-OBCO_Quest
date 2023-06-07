@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainScene));
             this.exitButton = new System.Windows.Forms.Label();
             this.charNameLabel = new System.Windows.Forms.Label();
             this.speechTextLabel = new System.Windows.Forms.Label();
@@ -158,7 +159,7 @@
             // 
             this.gameBackground.BackColor = System.Drawing.Color.Transparent;
             this.gameBackground.Image = global::OBCO_Game.Properties.Resources.labBox;
-            this.gameBackground.Location = new System.Drawing.Point(-1, -1);
+            this.gameBackground.Location = new System.Drawing.Point(-3, -1);
             this.gameBackground.Name = "gameBackground";
             this.gameBackground.Size = new System.Drawing.Size(960, 540);
             this.gameBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -194,8 +195,9 @@
             this.Controls.Add(this.gameBackground);
             this.Controls.Add(this.welcomeScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainScene";
-            this.Text = "MorningScene";
+            this.Text = "Цифровая грамотность: в мире цифровых технологий";
             ((System.ComponentModel.ISupportInitialize)(this.charSprite)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gameBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.welcomeScreen)).EndInit();

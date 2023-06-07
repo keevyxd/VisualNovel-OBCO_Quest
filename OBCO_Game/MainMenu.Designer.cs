@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.startGameButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Label();
             this.menuBackground = new System.Windows.Forms.PictureBox();
@@ -66,7 +67,7 @@
             // menuBackground
             // 
             this.menuBackground.Image = global::OBCO_Game.Properties.Resources.menu1;
-            this.menuBackground.Location = new System.Drawing.Point(-2, -2);
+            this.menuBackground.Location = new System.Drawing.Point(-2, -1);
             this.menuBackground.Name = "menuBackground";
             this.menuBackground.Size = new System.Drawing.Size(958, 540);
             this.menuBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -76,7 +77,7 @@
             // loadingScreen
             // 
             this.loadingScreen.Image = global::OBCO_Game.Properties.Resources.loadingScreen;
-            this.loadingScreen.Location = new System.Drawing.Point(-2, -2);
+            this.loadingScreen.Location = new System.Drawing.Point(-2, -1);
             this.loadingScreen.Name = "loadingScreen";
             this.loadingScreen.Size = new System.Drawing.Size(958, 540);
             this.loadingScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -93,8 +94,9 @@
             this.Controls.Add(this.menuBackground);
             this.Controls.Add(this.loadingScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";
-            this.Text = "Form1";
+            this.Text = "Цифровая грамотность: в мире цифровых технологий";
             ((System.ComponentModel.ISupportInitialize)(this.menuBackground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loadingScreen)).EndInit();
             this.ResumeLayout(false);
