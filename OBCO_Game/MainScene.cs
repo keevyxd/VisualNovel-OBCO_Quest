@@ -21,6 +21,8 @@ namespace OBCO_Game
         {
             InitializeComponent();
 
+            charSprite.BackColor = Color.Transparent;
+
             exitButton.Hide();
             gameBackground.Hide();
             charSprite.Hide();
@@ -475,17 +477,6 @@ namespace OBCO_Game
                 CharacterFileName = "mikanPoint.png",
                 BackgroundFileName = "labCabinetBox.jpg",
                 CharacterSpeech = "Хорошо, жду твоего вердикта!"
-            };
-            await SceneBuilder(props);
-        }
-
-        private async Task ResultsScene1()
-        {
-            SceneData props = new SceneData
-            {
-                CharacterFileName = "mikanHuh.png",
-                BackgroundFileName = "labCabinetBox.jpg",
-                CharacterSpeech = "Ну, какие результаты?"
             };
             await SceneBuilder(props);
         }
@@ -955,6 +946,7 @@ namespace OBCO_Game
                     PlaySound("thinPurple.wav");
                     HideCharacter();
                     ShowUI();
+                    skipButton.Enabled = true;
                     await LabTransitionScene1();
                     break;
                 case 25:
@@ -1251,7 +1243,7 @@ namespace OBCO_Game
             speechTextLabel.Show();
             exitButton.Show();
             dotsLabel.Show();
-            //skipButton.Show();
+            skipButton.Show();
         }
         private void HideUI()
         {
@@ -1430,6 +1422,13 @@ namespace OBCO_Game
             {
                 isProcessing = false;
                 sceneIndex = 19; //19 27
+                gameBackground_Click(sender, e);
+                skipButton.Enabled = false;
+            }
+            else if (sceneIndex < 43)
+            {
+                isProcessing = false;
+                sceneIndex = 40;
                 gameBackground_Click(sender, e);
                 skipButton.Enabled = false;
             }

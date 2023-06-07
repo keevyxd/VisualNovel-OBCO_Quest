@@ -145,6 +145,7 @@
             // 
             // charSprite
             // 
+            this.charSprite.BackColor = System.Drawing.Color.Transparent;
             this.charSprite.Image = global::OBCO_Game.Properties.Resources.nagitoWhat;
             this.charSprite.Location = new System.Drawing.Point(89, 54);
             this.charSprite.Name = "charSprite";
@@ -155,6 +156,7 @@
             // 
             // gameBackground
             // 
+            this.gameBackground.BackColor = System.Drawing.Color.Transparent;
             this.gameBackground.Image = global::OBCO_Game.Properties.Resources.labBox;
             this.gameBackground.Location = new System.Drawing.Point(-1, -1);
             this.gameBackground.Name = "gameBackground";

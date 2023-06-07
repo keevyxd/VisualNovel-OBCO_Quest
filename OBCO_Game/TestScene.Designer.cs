@@ -122,7 +122,7 @@
             this.lblAnsw1.BackColor = System.Drawing.Color.White;
             this.lblAnsw1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAnsw1.Location = new System.Drawing.Point(188, 244);
-            this.lblAnsw1.MaximumSize = new System.Drawing.Size(600, 0);
+            this.lblAnsw1.MaximumSize = new System.Drawing.Size(550, 0);
             this.lblAnsw1.Name = "lblAnsw1";
             this.lblAnsw1.Size = new System.Drawing.Size(56, 15);
             this.lblAnsw1.TabIndex = 6;
@@ -134,7 +134,7 @@
             this.lblAnsw2.BackColor = System.Drawing.Color.White;
             this.lblAnsw2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAnsw2.Location = new System.Drawing.Point(188, 292);
-            this.lblAnsw2.MaximumSize = new System.Drawing.Size(600, 0);
+            this.lblAnsw2.MaximumSize = new System.Drawing.Size(550, 0);
             this.lblAnsw2.Name = "lblAnsw2";
             this.lblAnsw2.Size = new System.Drawing.Size(56, 15);
             this.lblAnsw2.TabIndex = 7;
@@ -146,7 +146,7 @@
             this.lblAnsw3.BackColor = System.Drawing.Color.White;
             this.lblAnsw3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblAnsw3.Location = new System.Drawing.Point(188, 339);
-            this.lblAnsw3.MaximumSize = new System.Drawing.Size(400, 0);
+            this.lblAnsw3.MaximumSize = new System.Drawing.Size(390, 0);
             this.lblAnsw3.Name = "lblAnsw3";
             this.lblAnsw3.Size = new System.Drawing.Size(56, 15);
             this.lblAnsw3.TabIndex = 8;
